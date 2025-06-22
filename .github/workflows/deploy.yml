@@ -27,10 +27,13 @@ jobs:
         with:
           node-version: '20'
           cache: 'pnpm'
-          
-      - name: Install pnpm
-        run: npm install -g pnpm
-      
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8 # Or a specific version like '8.x.x'
+          run_install: false # We will run pnpm install in the next step
+
       - name: Install dependencies
         run: pnpm install
       
